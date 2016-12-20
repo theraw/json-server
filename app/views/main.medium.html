@@ -1,0 +1,53 @@
+<div layout="row" ng-if="showError">
+  <span class="md-headline"><p class="md-warn">Sorry there is an error getting the contacts, please check later<p></span>
+</div>
+
+<div layout="column" ng-if='showTable'>
+  <div layout="row" layout-align="space-between start">
+    <div layout="row" flex>
+      <md-input-container class='searchInput'>
+        <input ng-model="search.contacts" placeholder="Search Here" ng-keyup='inputIsChanged()'>
+      </md-input-container>
+    </div>
+    <div layout="row">
+      <md-button id='addContactButton' ng-click='addContact($event)'>
+        <i class="material-icons add_box_icon">add_circle</i>Add Contact
+      </md-button>
+    </div>
+  </div>
+  <div layout="row" ng-if="easterEgg" layout-align="center center">
+    <div class="jumbotron">
+      <h2>I'm Kelley :)</h2> 
+      <p>Did you know I spell my name with TWO e's</p>
+    </div>
+  </div>
+  <md-table-container>
+    <table md-table multiple ng-model="selected">
+      <thead md-head md-order="query.order">
+        <tr md-row>
+          <th md-column md-order-by="name">
+            <i class="material-icons">face</i>
+            <span>Name</span>
+          </th>
+          <th md-column md-order-by="number">
+            <i class="material-icons">phone</i>
+            <span>Number</span>
+          </th>
+          <th md-column md-order-by="context">
+            <i class="material-icons">people_outline</i>
+            <span>Context</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody md-body ng-repeat="person in contacts | orderBy: query.order | filter: search.contacts  | limitTo: query.limit : (query.page -1) * query.limit">
+        <tr md-row>
+          <td md-cell class="capitalize">{{person.name}}</td>
+          <td md-cell>{{person.number | tel}}</td>
+          <td md-cell>{{person.context}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </md-table-container>
+ <md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{(contacts | filter: search.contacts).length}}" md-limit-options="limitOptions"></md-table-pagination>
+
+</div>

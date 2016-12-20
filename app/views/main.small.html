@@ -1,0 +1,39 @@
+<div layout="row" ng-if="showError">
+  <span class="md-headline"><p class="md-warn">Sorry there is an error getting the contacts, please check later<p></span>
+</div>
+<div layout="column" ng-if='showTable'>
+  <div layout="row" layout-align="space-between start">
+    <div layout="row">
+      <md-button id='addContactButton' ng-click='addContact($event)'>
+        <i class="material-icons add_box_icon">add_circle</i>Add Contact
+      </md-button>
+    </div>
+  </div>
+  <md-table-container>
+    <table md-table multiple ng-model="selected" md-progress="promise">
+      <thead md-head md-order="query.order">
+        <tr md-row>
+          <th md-column md-order-by="name">
+            <i class="material-icons">face</i>
+            <span>Name</span>
+          </th>
+          <th md-column md-order-by="number">
+            <i class="material-icons">phone</i>
+            <span>Number</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody md-body ng-repeat="person in contacts | orderBy: query.order | filter: search.contacts  | limitTo: query.limit : (query.page -1) * query.limit">
+        <tr md-row>
+          <td md-cell class="capitalize">
+            {{person.name}}<br>
+            Context: {{person.context}}
+          </td>
+          <td md-cell>{{person.number | tel}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </md-table-container>
+ <md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{(contacts | filter: search.contacts).length}}" md-limit-options="limitOptions"></md-table-pagination>
+
+</div>

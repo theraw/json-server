@@ -1,0 +1,47 @@
+<md-dialog aria-label="Add Contact">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Add Contact</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content ng-show="!dialogErrorMsg">
+      <div class="md-dialog-content">
+        <div layout="row" flex layout-margin layout-xs="column">
+          <p class='contactText' flex='10'>Name:</p>
+          <md-input-container class='contactInput' flex>
+            <input ng-model="newContact.name" placeholder="First & Last Name">
+          </md-input-container>
+        </div>
+        <div layout="row" flex layout-margin layout-xs="column">
+          <p class='contactText' flex='10'>Number:</p>
+          <md-input-container class='contactInput' flex>
+            <input ng-model="newContact.number" placeholder="Phone Number">
+          </md-input-container>
+        </div>
+        <div layout="row" flex layout-margin layout-xs="column">
+          <p class='contactText' flex='10'>Context:</p>
+          <md-input-container class='contactInput' flex>
+            <input ng-model="newContact.context" placeholder="How do you know this person?">
+          </md-input-container>
+        </div>
+     </div>
+    </md-dialog-content>
+
+    <md-dialog-content ng-show="dialogErrorMsg">
+      <div class="md-dialog-content">
+        <h4>Sorry there was an error with your new contact, please try again</h4>
+      </div>
+    </md-dialog-content>
+    
+    <md-dialog-actions layout="row" ng-show="!dialogErrorMsg">
+      <md-button ng-click="submitContact()">
+        Add
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
+
+

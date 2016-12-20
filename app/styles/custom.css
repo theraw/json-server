@@ -1,0 +1,96 @@
+html, body, .navbar.navbar-default {
+	background-color: #ffffff;
+}
+
+.container {
+	max-width: none;
+}
+
+table.md-table td.md-cell.md-numeric, table.md-table th.md-column.md-numeric {
+	text-align: left;
+}
+
+table.md-table:not(.md-row-select) td.md-cell:nth-child(n+2):nth-last-child(n+2), table.md-table:not(.md-row-select) th.md-column:nth-child(n+2):nth-last-child(n+2) {
+	padding: 0 14px 0 0;
+}
+
+.displayNone {
+	display: none;
+}
+
+.moreInfoSubTitle {
+	color: #3db2c2;
+	font-weight: 900;
+}
+
+#addContactButton {
+    width: 160px;
+    background-color: #d7edf4 !important;
+    color: #000000 !important;
+    text-transform: capitalize;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+table.md-table th.md-column.md-active, table.md-table th.md-column.md-active md-icon {
+	color: #3db2c2;
+}
+
+.searchInput {
+	margin: 15px 0 0 0;
+	width: 400px;
+}
+
+.label {
+	color: #000000;
+	font-size: 16px;
+}
+
+.btnXs {
+	font-size: 10px;
+}
+
+.add_box_icon {
+	vertical-align: middle;
+	margin: 0 10px 3px 0;
+	color: #3db2c2;
+}
+
+.contactInput {
+	margin: 0;
+	min-width: 300px;
+
+}
+
+.contactText {
+	margin: 12px 34px 0 0;
+}
+
+.md-toolbar-tools {
+	background-color: #d7edf4;
+	color: #000000;
+}
+
+.capitalize {
+	text-transform: capitalize;
+}
+
+@media (max-width: 599px) {
+	.layout-xs-column label {
+		display: none;
+	}
+	md-dialog .md-dialog-content {
+		padding: 10px;
+	}
+	md-input-container {
+		margin: 0 0 -10px 0 !important;
+	}
+}
+
+
+
+
+
+
+
+
